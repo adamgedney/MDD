@@ -1,0 +1,192 @@
+/* 
+	Thanks for checking out my code!!
+
+
+	Copyright Adam Gedney 2/6/14
+	contact: adam.gedney@gmail.com
+	http://adamgedney.com
+
+"Good UI design is humble.” – Jono DiCarlo
+*/
+/*
+
+
+----------------SASS------------------*/
+$white: #f6feff;
+$icon-gray: #ccc;
+$light-gray: #5c5c5c;
+$text-gray: #5d5d5d;
+$dark-gray: #252525;
+$black: #000;
+$red: #d93330;
+$blue: #5d95ba;
+$green: #479648;
+
+/*----Sass imports----*/
+@import "reset";
+@import "defaults";
+@import "util";
+
+
+
+/*--------------------------------------End General / Start Objects------------------------------------*/
+
+.hide-name{
+	display: none;
+}
+
+.hide-text{
+	text-indent: 200%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.container{
+	width: 100%;
+}
+
+.double{
+	min-height: 1680px;
+}
+
+.red{
+	color: $red;
+}
+
+.blue{
+	color: $blue;
+}
+
+.light-gray{
+	color: $icon-gray;
+}
+
+.text-gray{
+	color: $text-gray;
+}
+
+.dark-gray{
+	color: $dark-gray;
+}
+
+.underline{
+	text-decoration: underline;
+}
+
+.heart{
+	font-size: .85em;
+}
+
+
+/*--------------------------------------End Objects / Start Main------------------------------------*/
+
+
+.detail-container{
+	margin: 36px;
+
+	img{
+		@include col(12);
+		@include col_margin_auto(12);
+		margin-bottom: 36px;
+	}
+
+	h2{
+		color: $red;
+	}	
+
+	p{
+		@include col(12);
+	}
+}
+
+
+
+
+//--------------------------min-width 480------------------------------------
+@media only screen 
+and (min-width : 480px) {
+
+.detail-container{
+	@include col(10);
+	@include col_margin_auto(10);
+
+	img{
+		@include col(10);
+		@include col_margin_auto(10);
+	}
+
+}
+
+}
+
+
+
+
+
+
+
+//--------------------------min-width 767------------------------------------
+@media only screen 
+and (min-width : 800px) {
+
+.detail-container{
+	overflow: hidden;
+	margin-top: 144px;
+	@include col(10);
+	@include col_margin_auto(10);
+	min-height: 100vh;
+
+	h2{
+		line-height: 1em;
+		margin-bottom: 9px;
+	}
+
+	img{
+		@include col(5);
+		@include col_margin_auto(0);
+		float: left;
+		margin-right: 18px;
+	}
+	
+
+	p{
+		@include col(12);
+	}
+}
+}
+
+
+
+
+/* Desktops ---------------------- */
+@media only screen 
+and (min-width : 1040px) {
+
+
+}
+
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1220px) {
+
+}
+
+
+
+
+@media only screen 
+and (min-width : 1800px) {
+	
+}
+
+
+@media only screen 
+and (min-width : 2000px) {
+	
+}
+
+
+
+
+

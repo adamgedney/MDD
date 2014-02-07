@@ -1,0 +1,90 @@
+/*--------------------------------------End CSS Reset / Start General-------------------------------*/
+
+
+// Baseline grid: 3px
+
+
+
+//border box borrowed from responsive.gs
+* { -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; 
+}
+
+
+body{
+// background: $red;
+color: $text-gray;
+font: 62.5% 'Droid Serif', "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4{
+font-family: 'Ubuntu', "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+}
+
+h1{
+font-size: 3.6em; /*18x4*/
+line-height: 1.5;
+}
+
+h2{
+font-size: 2.4em;/*18x3*/
+line-height: 1.5;
+}
+
+h3{
+font-size: 1.6em;/*18x2 - 6*/
+line-height: 1.5;
+}
+
+p, ul, dl{
+font-size: 1.6em;
+font-weight: 100;
+line-height: 1.5;
+margin-bottom: 20px;
+}
+
+
+ul{
+line-height: 1.5;
+}
+
+a, input[type="submit"]{
+text-decoration: none;
+color: $blue;
+opacity: 1;
+// @include duration;
+outline: none;
+-webkit-appearance: none;/*overrides safari mobile default styling*/
+}
+
+a:visited{
+	outline: none;
+}
+
+a:hover, input[type="submit"]:hover{
+opacity: .5;
+// @include duration;
+}
+
+a.no-tran:hover{
+	opacity: 1;
+}
+
+img{
+	max-width: 100%;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: $icon-gray;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $icon-gray;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $icon-gray;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $icon-gray;
+}

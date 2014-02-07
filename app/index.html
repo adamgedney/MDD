@@ -6,16 +6,25 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>I like pigeons</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <link rel="image_src" href="" /><!-- Facebook thumbnail image code -->
+
+    <link type="text/plain" rel="author" href="/humans.txt" />
+    <link rel="shortcut icon" href="http://adamshields.com/favicon.ico" />
+
+    <!-- icomoon icon font -->
+    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/abd6fea4fa/UntitledProject1/style.css">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="pigeonsApp">
@@ -44,12 +53,21 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="bower_components/angularfire/angularfire.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="application.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

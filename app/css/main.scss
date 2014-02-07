@@ -1,0 +1,293 @@
+/* 
+	Thanks for checking out my code!!
+
+
+	Copyright Adam Gedney 10/21/13
+	contact: adam.gedney@gmail.com
+	http://adamgedney.com
+
+"Good UI design is humble.” – Jono DiCarlo
+*/
+/*
+
+
+----------------SASS------------------*/
+$white: #f6feff;
+$icon-gray: #ccc;
+$light-gray: #5c5c5c;
+$text-gray: #5d5d5d;
+$dark-gray: #252525;
+$black: #000;
+$red: #d93330;
+$blue: #5d95ba;
+$green: #479648;
+
+/*----Sass imports----*/
+@import "reset";
+@import "defaults";
+@import "util";
+
+
+
+/*--------------------------------------End General / Start Objects------------------------------------*/
+
+.hide-name{
+	display: none;
+}
+
+.hide-text{
+	text-indent: 200%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.container{
+	width: 100%;
+}
+
+.double{
+	min-height: 1680px;
+}
+
+.red{
+	color: $red;
+}
+
+.blue{
+	color: $blue;
+}
+
+.light-gray{
+	color: $icon-gray;
+}
+
+.text-gray{
+	color: $text-gray;
+}
+
+.dark-gray{
+	color: $dark-gray;
+}
+
+.underline{
+	text-decoration: underline;
+}
+
+.heart{
+	font-size: .85em;
+}
+
+
+/*--------------------------------------End Objects / Start Main------------------------------------*/
+
+.wrapper{
+	overflow: hidden;
+	margin-bottom: 36px;
+	padding-bottom: 36px;
+	border-bottom: 1px solid $icon-gray;
+}
+
+.fold{
+	background: $dark-gray;
+	padding-bottom: 36px;
+
+	h1{
+		text-align: center;
+		font-size: 4.5em;
+		padding: 144px 0 108px;
+		color: $icon-gray;
+
+	}
+}
+
+.down-arrow{
+	color: $light-gray;
+	font-family: 'icomoon';
+	font-size: 3.6em;
+	width: 16px;
+	margin: 0 auto;
+	display: block;
+}
+
+
+article{
+	overflow: hidden;
+	border-bottom: 1px solid $icon-gray;
+
+	h2{
+		color: $red;
+		text-align: center;
+	}
+
+	a,p, h2{
+		padding: 0 18px;
+	}
+
+}
+
+.thumb-container{
+	margin: 144px 0 9px 0;
+
+	img{
+		@include col(12);
+		@include col_margin_auto(12);
+	}
+}
+
+
+footer{
+	padding-top: 18px;
+
+	p{
+		text-align: center;
+		color: $red;
+	}
+}
+
+
+//--------------------------min-width 480------------------------------------
+@media only screen 
+and (min-width : 480px) {
+
+.wrapper{
+	h1{
+		margin: 0 36px;
+	}
+}
+
+.thumb-container{
+	img{
+		@include col(6);
+		@include col_margin_auto(6);
+	}
+}
+
+}
+
+
+
+
+
+
+
+//--------------------------min-width 767------------------------------------
+@media only screen 
+and (min-width : 800px) {
+
+.fold{
+	height: 100vh;
+	margin-bottom: 72px;
+
+	h1{
+		@include vertical-align;
+	}
+
+	span{
+		margin-top: 72px;
+	}
+}
+
+.wrapper{
+	@include col(12);
+	@include col_margin_auto(12);
+}
+
+.down-arrow{
+	margin-bottom: 144px;
+}
+
+.thumb-container{
+	img{
+		@include col(8);
+		@include col_margin_auto(8);
+	}
+}
+
+article{
+	@include col(5);
+	@include col_margin_auto(0);
+	margin: 0 0 36px 36px;
+	float: left;
+	min-height: 650px;
+	border-bottom: 0;
+	border: 1px solid $icon-gray;
+	border-radius: 2px;
+}
+
+}
+
+
+
+
+/* Desktops ---------------------- */
+@media only screen 
+and (min-width : 1040px) {
+
+.articles{
+	overflow: hidden;
+	@include col(10);
+	@include col_margin_auto(10);
+}
+
+article{
+	@include col(5);
+	float: left;
+	height: 600px;
+}
+
+.thumb-container{
+	min-height: 225px;
+	max-height: 225px;
+	overflow: hidden;
+}	
+
+article:nth-child(even){
+	margin-right: 36px;
+	float: right;
+}
+
+}
+
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1220px) {
+
+}
+
+
+
+
+@media only screen 
+and (min-width : 1800px) {
+	
+}
+
+
+@media only screen 
+and (min-width : 2000px) {
+	
+}
+
+
+
+
+
+
+
+
+
+/* Detail template import -------------------- */
+@import "detail-template";
+
+
+
+
+
+
+
+
+
+
+
+
