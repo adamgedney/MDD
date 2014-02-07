@@ -9,10 +9,10 @@ angular.module('pigeonsApp')
 
 		$scope.user = {title : 'My Name is Adam, and I Like ', titleWhite : 'Pigeons.'};
 
-		FireConn.$bind($scope, 'remoteData');
+		//firebase data
+		// FireConn.$bind($scope, 'firebaseData');
 
-		$scope.saveData = function(){
-			$scope.remoteData.activeUser = $scope.user;
-		};
+		$scope.articles = FireConn;
+		console.log(FireConn);
 
 	}]);

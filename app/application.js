@@ -1,5 +1,5 @@
 "use strict";
-/*! pigeons - v0.0.0 - 2014-02-06 */
+/*! pigeons - v0.0.0 - 2014-02-07 */
 // Source: app/scripts/app.js
 var App = angular.module('pigeonsApp', [
   'ngCookies',
@@ -19,9 +19,38 @@ App.config(function($routeProvider){
     .when('/detail/:title', {//adds a detectable value to the url
       templateUrl : 'views/detail.tpl',
       controller : 'ProjectDetail'
+    })
+    .when('/admin', {
+      templateUrl : 'views/admin.tpl',
+      controller : 'Action_Submit_Form'
     });
 });
 
+// Source: app/scripts/controllers/Action_Submit_Form.js
+//This controller handles the form submit action
+//it send an object to the Firebase database upon submit
+angular.module('pigeonsApp')
+	.controller('Action_Submit_Form', ['$scope', 'FireConn', function ($scope, FireConn){
+
+		//binds to Firebase as 'db'
+		FireConn.$bind($scope, 'db');
+
+		//sets data to firebase
+		//called from admin.tpl form
+		$scope.setData = function(){
+
+			//sets data to an article object in database
+			//from the article object created in the admin
+			//template scope form input field ng-model directives
+			FireConn.$add($scope.article);
+
+			// console.log($scope.db, 'firebase');
+
+			location.reload();
+		};// setData
+
+
+	}]);
 // Source: app/scripts/controllers/ProjectDetail.js
 //this controller just allows the button click to function
 //<button ng-click="actionTime()"></button>
@@ -42,11 +71,11 @@ angular.module('pigeonsApp')
 
 		$scope.user = {title : 'My Name is Adam, and I Like ', titleWhite : 'Pigeons.'};
 
-		FireConn.$bind($scope, 'remoteData');
+		//firebase data
+		// FireConn.$bind($scope, 'firebaseData');
 
-		$scope.saveData = function(){
-			$scope.remoteData.activeUser = $scope.user;
-		};
+		$scope.articles = FireConn;
+		console.log(FireConn);
 
 	}]);
 // Source: app/scripts/controllers/main.js
@@ -69,7 +98,7 @@ angular.module('pigeonsApp')
 /*global Firebase*/
 angular.module('pigeonsApp')
 	.factory('FireConn', ['$firebase', function ($firebase) {
-		var url = 'https://adamgedney.firebaseIO.com',
+		var url = 'https://pigeons.firebaseio.com/',
 			ref = new Firebase(url);
 
 		return $firebase(ref);

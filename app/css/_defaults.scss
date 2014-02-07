@@ -8,7 +8,7 @@
 //border box borrowed from responsive.gs
 * { -webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	box-sizing: border-box; 
+	box-sizing: border-box;
 }
 
 
@@ -74,6 +74,19 @@ a.no-tran:hover{
 
 img{
 	max-width: 100%;
+}
+
+input, button, textarea{
+	border: none;
+	border: 1px solid $icon-gray;
+	border-radius: 2px;
+	height: 30px;
+	display: block;
+	margin-bottom: 9px;
+	padding: 9px;
+	font-size: 1.6em;
+	font-weight: 100;
+	outline: none;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */

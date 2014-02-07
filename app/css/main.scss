@@ -1,4 +1,4 @@
-/* 
+/*
 	Thanks for checking out my code!!
 
 
@@ -23,9 +23,10 @@ $blue: #5d95ba;
 $green: #479648;
 
 /*----Sass imports----*/
+@import "util";
 @import "reset";
 @import "defaults";
-@import "util";
+
 
 
 
@@ -145,8 +146,30 @@ footer{
 }
 
 
+.admin-form{
+	@include col(3);
+	@include col_margin_auto(3);
+	margin-top: 144px;
+	min-height: 100vh;
+
+	input, textarea, button{
+		@include col(12);
+	}
+
+	.desc-box{
+		text-align: top;
+		height: 144px;
+	}
+
+	button{
+		background: $green;
+		height: 40px;
+		color: $white;
+	}
+}
+
 //--------------------------min-width 480------------------------------------
-@media only screen 
+@media only screen
 and (min-width : 480px) {
 
 .wrapper{
@@ -171,7 +194,7 @@ and (min-width : 480px) {
 
 
 //--------------------------min-width 767------------------------------------
-@media only screen 
+@media only screen
 and (min-width : 800px) {
 
 .fold{
@@ -220,7 +243,7 @@ article{
 
 
 /* Desktops ---------------------- */
-@media only screen 
+@media only screen
 and (min-width : 1040px) {
 
 .articles{
@@ -239,7 +262,7 @@ article{
 	min-height: 225px;
 	max-height: 225px;
 	overflow: hidden;
-}	
+}
 
 article:nth-child(even){
 	margin-right: 36px;
@@ -250,7 +273,7 @@ article:nth-child(even){
 
 
 /* Large screens ----------- */
-@media only screen 
+@media only screen
 and (min-width : 1220px) {
 
 }
@@ -258,15 +281,15 @@ and (min-width : 1220px) {
 
 
 
-@media only screen 
+@media only screen
 and (min-width : 1800px) {
-	
+
 }
 
 
-@media only screen 
+@media only screen
 and (min-width : 2000px) {
-	
+
 }
 
 
