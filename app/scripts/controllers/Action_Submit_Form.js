@@ -5,7 +5,8 @@
 angular.module('pigeonsApp')
 	.controller('Action_Submit_Form', ['$scope', 'FireConn', function ($scope, FireConn){
 
-		//binds to Firebase as 'db'
+		//binds to Firebase as 'db' in the $scope
+		//?? do I need to switch db to article?
 		FireConn.$bind($scope, 'db');
 
 		//sets data to firebase
@@ -15,9 +16,9 @@ angular.module('pigeonsApp')
 			//sets data to an article object in database
 			//from the article object created in the admin
 			//template scope form input field ng-model directives
-			FireConn.$add($scope.article);
-
-			// console.log($scope.db, 'firebase');
+			FireConn.$add($scope.article); // This is the working, non-structured add. Save for proj requirements
+			// FireConn.$save('articles');
+			// console.log(FireConn, 'firebase');
 
 			location.reload();
 		};// setData

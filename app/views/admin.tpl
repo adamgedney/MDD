@@ -7,7 +7,7 @@
 		<input placeholder="Article title" type="text" ng-model="article.title" value="" />
 		<textarea placeholder="Article description" class="desc-box" type="text" ng-model="article.desc" value="" ></textarea>
 
-		<button class="admin_submit_button" ng-click="setData()">Save</button>
+		<button id="admin_submit_button" ng-click="setData()">Save</button>
 
 	</div><!-- /.admin-form-->
 

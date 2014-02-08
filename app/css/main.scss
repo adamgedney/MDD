@@ -96,7 +96,10 @@ $green: #479648;
 		text-align: center;
 		font-size: 4.5em;
 		padding: 144px 0 108px;
-		color: $icon-gray;
+
+		a{
+			color: $icon-gray;
+		}
 
 	}
 }

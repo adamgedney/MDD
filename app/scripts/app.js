@@ -15,7 +15,7 @@ App.config(function($routeProvider){
       templateUrl : 'views/main.tpl',
       controller : 'ProjectList'
     })
-    .when('/detail/:title', {//adds a detectable value to the url
+    .when('/detail/:title', {//adds route parameters to url
       templateUrl : 'views/detail.tpl',
       controller : 'ProjectDetail'
     })
@@ -24,3 +24,5 @@ App.config(function($routeProvider){
       controller : 'Action_Submit_Form'
     });
 });
+
+

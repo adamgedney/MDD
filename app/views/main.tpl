@@ -4,7 +4,7 @@
 	<div class="wrapper">
 
 		<div class="fold">
-			<h1><a href="#/admin">{{user.title}}<span class="red">{{user.titleWhite}}</span></a></h1>
+			<h1 class="landing-title" ><a href="#/admin">{{user.title}}<span class="red">{{user.titleWhite}}</span></a></h1>
 
 			<span class="down-arrow icon-arrow-down"></span>
 		</div><!-- /.fold -->
@@ -18,9 +18,9 @@
 
 
 				<article ng-repeat="article in articles">
-					<a href='"#/detail/'+ {{article.title}} + '"'>
+					<a href="#/detail/{{article.title}}">
 						<div class="thumb-container">
-							<img src="{{article.img}}"/>
+							<img ng-src="{{article.img}}"/>
 						</div><!-- /.thumb-container -->
 
 							<h2>{{article.title}}</h2>

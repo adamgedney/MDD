@@ -1,5 +1,5 @@
 "use strict";
-/*! pigeons - v0.0.0 - 2014-02-07 */
+/*! pigeons - v0.0.0 - 2014-02-08 */
 // Source: app/scripts/app.js
 var App = angular.module('pigeonsApp', [
   'ngCookies',
@@ -16,7 +16,7 @@ App.config(function($routeProvider){
       templateUrl : 'views/main.tpl',
       controller : 'ProjectList'
     })
-    .when('/detail/:title', {//adds a detectable value to the url
+    .when('/detail/:title', {//adds route parameters to url
       templateUrl : 'views/detail.tpl',
       controller : 'ProjectDetail'
     })
@@ -26,13 +26,16 @@ App.config(function($routeProvider){
     });
 });
 
+
+
 // Source: app/scripts/controllers/Action_Submit_Form.js
 //This controller handles the form submit action
 //it send an object to the Firebase database upon submit
 angular.module('pigeonsApp')
 	.controller('Action_Submit_Form', ['$scope', 'FireConn', function ($scope, FireConn){
 
-		//binds to Firebase as 'db'
+		//binds to Firebase as 'db' in the $scope
+		//?? do I need to switch db to article?
 		FireConn.$bind($scope, 'db');
 
 		//sets data to firebase
@@ -42,9 +45,9 @@ angular.module('pigeonsApp')
 			//sets data to an article object in database
 			//from the article object created in the admin
 			//template scope form input field ng-model directives
-			FireConn.$add($scope.article);
-
-			// console.log($scope.db, 'firebase');
+			FireConn.$add($scope.article); // This is the working, non-structured add. Save for proj requirements
+			// FireConn.$save('articles');
+			// console.log(FireConn, 'firebase');
 
 			location.reload();
 		};// setData
@@ -55,14 +58,14 @@ angular.module('pigeonsApp')
 //this controller just allows the button click to function
 //<button ng-click="actionTime()"></button>
 angular.module('pigeonsApp')
-	.controller('ProjectDetail', function($scope, $routeParams){
+	.controller('ProjectDetail', ['$scope', '$routeParams', function($scope, $routeParams){
 
-		var title = $routeParams.title;
-		$scope.itemTitle = title;
+		//sets the detail template <h2> to reflect the title
+		//passed in a route paramter
+		$scope.itemTitle = $routeParams.title;
 
-		console.log($routeParams.title, 'loading Detail');
-
-	});
+		// console.log(FireConn,  'non loop');
+	}]);
 // Source: app/scripts/controllers/ProjectList.js
 //this controller just allows the button click to function
 //<button ng-click="actionTime()"></button>
@@ -72,10 +75,10 @@ angular.module('pigeonsApp')
 		$scope.user = {title : 'My Name is Adam, and I Like ', titleWhite : 'Pigeons.'};
 
 		//firebase data
-		// FireConn.$bind($scope, 'firebaseData');
+		FireConn.$bind($scope, 'firebaseData');
 
 		$scope.articles = FireConn;
-		console.log(FireConn);
+		// console.log();
 
 	}]);
 // Source: app/scripts/controllers/main.js
