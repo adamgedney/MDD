@@ -15,7 +15,7 @@ App.config(function($routeProvider){
       templateUrl : 'views/main.tpl',
       controller : 'ProjectList'
     })
-    .when('/detail/:title', {//adds route parameters to url
+    .when('/detail/:id', {//adds route parameters to url
       templateUrl : 'views/detail.tpl',
       controller : 'ProjectDetail'
     })

@@ -18,7 +18,7 @@ angular.module('pigeonsApp')
 			//template scope form input field ng-model directives
 			FireConn.$add($scope.article); // This is the working, non-structured add. Save for proj requirements
 			// FireConn.$save('articles');
-			// console.log(FireConn, 'firebase');
+
 
 			location.reload();
 		};// setData

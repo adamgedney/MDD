@@ -16,7 +16,7 @@ App.config(function($routeProvider){
       templateUrl : 'views/main.tpl',
       controller : 'ProjectList'
     })
-    .when('/detail/:title', {//adds route parameters to url
+    .when('/detail/:id', {//adds route parameters to url
       templateUrl : 'views/detail.tpl',
       controller : 'ProjectDetail'
     })
@@ -47,7 +47,7 @@ angular.module('pigeonsApp')
 			//template scope form input field ng-model directives
 			FireConn.$add($scope.article); // This is the working, non-structured add. Save for proj requirements
 			// FireConn.$save('articles');
-			// console.log(FireConn, 'firebase');
+
 
 			location.reload();
 		};// setData
@@ -58,13 +58,12 @@ angular.module('pigeonsApp')
 //this controller just allows the button click to function
 //<button ng-click="actionTime()"></button>
 angular.module('pigeonsApp')
-	.controller('ProjectDetail', ['$scope', '$routeParams', function($scope, $routeParams){
+	.controller('ProjectDetail', ['$scope', '$routeParams', 'FireConn', function($scope, $routeParams, FireConn){
 
-		//sets the detail template <h2> to reflect the title
-		//passed in a route paramter
-		$scope.itemTitle = $routeParams.title;
+		//sets the detail template content to reflect the fb data
+		//retrieved by querying on the passed in route parameter
+		$scope.article = FireConn.$child($routeParams.id);
 
-		// console.log(FireConn,  'non loop');
 	}]);
 // Source: app/scripts/controllers/ProjectList.js
 //this controller just allows the button click to function
@@ -75,10 +74,8 @@ angular.module('pigeonsApp')
 		$scope.user = {title : 'My Name is Adam, and I Like ', titleWhite : 'Pigeons.'};
 
 		//firebase data
-		FireConn.$bind($scope, 'firebaseData');
-
+		// FireConn.$bind($scope, 'articles');
 		$scope.articles = FireConn;
-		// console.log();
 
 	}]);
 // Source: app/scripts/controllers/main.js
@@ -101,7 +98,7 @@ angular.module('pigeonsApp')
 /*global Firebase*/
 angular.module('pigeonsApp')
 	.factory('FireConn', ['$firebase', function ($firebase) {
-		var url = 'https://pigeons.firebaseio.com/',
+		var url = 'https://pigeons.firebaseio.com',
 			ref = new Firebase(url);
 
 		return $firebase(ref);

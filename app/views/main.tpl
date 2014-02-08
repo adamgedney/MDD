@@ -17,8 +17,8 @@
 		<div class="articles">
 
 
-				<article ng-repeat="article in articles">
-					<a href="#/detail/{{article.title}}">
+				<article ng-repeat="($id, article) in articles">
+					<a href="#/detail/{{$id}}">
 						<div class="thumb-container">
 							<img ng-src="{{article.img}}"/>
 						</div><!-- /.thumb-container -->
