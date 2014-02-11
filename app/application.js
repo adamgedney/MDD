@@ -1,5 +1,5 @@
 "use strict";
-/*! pigeons - v0.0.0 - 2014-02-08 */
+/*! pigeons - v0.0.0 - 2014-02-09 */
 // Source: app/scripts/app.js
 var App = angular.module('pigeonsApp', [
   'ngCookies',
@@ -55,25 +55,28 @@ angular.module('pigeonsApp')
 
 	}]);
 // Source: app/scripts/controllers/ProjectDetail.js
-//this controller just allows the button click to function
-//<button ng-click="actionTime()"></button>
+//This controller handles the detail page and Firebase child querying
+//on the Firebase id as a routeparam
 angular.module('pigeonsApp')
 	.controller('ProjectDetail', ['$scope', '$routeParams', 'FireConn', function($scope, $routeParams, FireConn){
 
-		//sets the detail template content to reflect the fb data
+		//sets the detail template content to reflect the firebase data
 		//retrieved by querying on the passed in route parameter
 		$scope.article = FireConn.$child($routeParams.id);
 
 	}]);
 // Source: app/scripts/controllers/ProjectList.js
-//this controller just allows the button click to function
-//<button ng-click="actionTime()"></button>
+//This controller handles the main template,
+//Firebase item getting and binding to scope
 angular.module('pigeonsApp')
 	.controller('ProjectList', ['$scope', 'FireConn', function ($scope, FireConn){
 
 		$scope.user = {title : 'My Name is Adam, and I Like ', titleWhite : 'Pigeons.'};
 
 		//firebase data
+		//$bind introduces reload issues where the article
+		//ng-repeat won't populate on reload
+		//using $scope.articles to hack it
 		// FireConn.$bind($scope, 'articles');
 		$scope.articles = FireConn;
 

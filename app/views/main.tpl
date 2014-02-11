@@ -9,10 +9,6 @@
 			<span class="down-arrow icon-arrow-down"></span>
 		</div><!-- /.fold -->
 
-		<!-- <article ng-repeat="item in remoteData.gallery">
-			<h2>{{item.title}}</h2>
-			<p>item.imgUrl</p>
-		</article> -->
 
 		<div class="articles">
 
