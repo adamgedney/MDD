@@ -4,6 +4,7 @@
 
 //This controller handles the main template,
 //Firebase item getting and binding to scope
+
 angular.module('pigeonsApp')
 	.controller('ProjectList', ['$scope', 'FireConn', function ($scope, FireConn){
 
@@ -13,7 +14,8 @@ angular.module('pigeonsApp')
 		//$bind introduces reload issues where the article
 		//ng-repeat won't populate on reload
 		//using $scope.articles to hack it
-		// FireConn.$bind($scope, 'articles');
 		$scope.articles = FireConn;
+
+
 
 	}]);

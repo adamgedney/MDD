@@ -1,5 +1,6 @@
 'use strict';
 
+/* global Firebase */
 var App = angular.module('pigeonsApp', [
   'ngCookies',
   'ngResource',
@@ -24,5 +25,21 @@ App.config(function($routeProvider){
       controller : 'Action_Submit_Form'
     });
 });
+
+
+
+
+
+App.run(['$firebaseSimpleLogin', '$rootScope', function($firebaseSimpleLogin, $rootScope){
+
+    //reference to firebase
+    var db = new Firebase('https://pigeons.firebaseio.com');
+
+    //sets up simple login
+    $rootScope.loginObject = $firebaseSimpleLogin(db);
+
+  }]);
+
+
 
 

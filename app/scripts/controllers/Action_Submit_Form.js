@@ -19,7 +19,6 @@ angular.module('pigeonsApp')
 			FireConn.$add($scope.article); // This is the working, non-structured add. Save for proj requirements
 			// FireConn.$save('articles');
 
-
 			location.reload();
 		};// setData
 

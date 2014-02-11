@@ -150,8 +150,8 @@ footer{
 
 
 .admin-form{
-	@include col(3);
-	@include col_margin_auto(3);
+	@include col(10);
+	@include col_margin_auto(10);
 	margin-top: 144px;
 	min-height: 100vh;
 
@@ -171,6 +171,15 @@ footer{
 	}
 }
 
+
+
+
+
+
+
+
+
+
 //--------------------------min-width 480------------------------------------
 @media only screen
 and (min-width : 480px) {
@@ -186,6 +195,12 @@ and (min-width : 480px) {
 		@include col(6);
 		@include col_margin_auto(6);
 	}
+}
+
+.admin-form{
+	@include col(7);
+	@include col_margin_auto(7);
+
 }
 
 }
@@ -240,6 +255,12 @@ article{
 	border-radius: 2px;
 }
 
+.admin-form{
+	@include col(5);
+	@include col_margin_auto(5);
+
+}
+
 }
 
 
@@ -270,6 +291,12 @@ article{
 article:nth-child(even){
 	margin-right: 36px;
 	float: right;
+}
+
+.admin-form{
+	@include col(3);
+	@include col_margin_auto(3);
+
 }
 
 }

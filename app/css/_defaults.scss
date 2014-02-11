@@ -50,6 +50,10 @@ ul{
 line-height: 1.5;
 }
 
+a{
+	cursor: pointer;
+}
+
 a, input[type="submit"]{
 text-decoration: none;
 color: $blue;

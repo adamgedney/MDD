@@ -1,6 +1,7 @@
 "use strict";
-/*! pigeons - v0.0.0 - 2014-02-09 */
+/*! pigeons - v0.0.0 - 2014-02-11 */
 // Source: app/scripts/app.js
+/* global Firebase */
 var App = angular.module('pigeonsApp', [
   'ngCookies',
   'ngResource',
@@ -28,6 +29,22 @@ App.config(function($routeProvider){
 
 
 
+
+
+App.run(['$firebaseSimpleLogin', '$rootScope', function($firebaseSimpleLogin, $rootScope){
+
+    //reference to firebase
+    var db = new Firebase('https://pigeons.firebaseio.com');
+
+    //sets up simple login
+    $rootScope.loginObject = $firebaseSimpleLogin(db);
+
+  }]);
+
+
+
+
+
 // Source: app/scripts/controllers/Action_Submit_Form.js
 //This controller handles the form submit action
 //it send an object to the Firebase database upon submit
@@ -48,7 +65,6 @@ angular.module('pigeonsApp')
 			FireConn.$add($scope.article); // This is the working, non-structured add. Save for proj requirements
 			// FireConn.$save('articles');
 
-
 			location.reload();
 		};// setData
 
@@ -68,6 +84,7 @@ angular.module('pigeonsApp')
 // Source: app/scripts/controllers/ProjectList.js
 //This controller handles the main template,
 //Firebase item getting and binding to scope
+
 angular.module('pigeonsApp')
 	.controller('ProjectList', ['$scope', 'FireConn', function ($scope, FireConn){
 
@@ -77,8 +94,9 @@ angular.module('pigeonsApp')
 		//$bind introduces reload issues where the article
 		//ng-repeat won't populate on reload
 		//using $scope.articles to hack it
-		// FireConn.$bind($scope, 'articles');
 		$scope.articles = FireConn;
+
+
 
 	}]);
 // Source: app/scripts/controllers/main.js
